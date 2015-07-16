@@ -1,0 +1,51 @@
+{
+  "name": "nexus-api",
+  "description": "The best module ever.",
+  "version": "0.0.0",
+  "homepage": "https://github.com/cedwards-reisys/nexus-api",
+  "bugs": "https://github.com/cedwards-reisys/nexus-api/issues",
+  "license": "MIT",
+  "main": "server.js",
+  "author": {
+    "name": "Chris Edwards",
+    "email": "cedwards@reisystems.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cedwards-reisys/nexus-api"
+  },
+  "keywords": [],
+  "dependencies": {
+    "config": "^1.14.0",
+    "debug": "2.2.0",
+    "fs": "0.0.2",
+    "good": "^6.3.0",
+    "good-console": "^5.0.2",
+    "good-winston": "^1.0.0",
+    "hapi": "^8.8.0",
+    "lodash": "3.10.0",
+    "q": "1.4.1",
+    "winston": "^1.0.1"
+  },
+  "devDependencies": {
+    "code": "^1.4.1",
+    "coveralls": "^2.11.1",
+    "gulp": "^3.8.8",
+    "gulp-bump": "^0.1.11",
+    "gulp-istanbul": "^0.5.0",
+    "gulp-jscs": "^1.1.2",
+    "gulp-jshint": "^1.8.4",
+    "gulp-lab": "^1.0.5",
+    "gulp-load-plugins": "^0.6.0",
+    "gulp-plumber": "^0.6.5",
+    "gulp-util": "^3.0.1",
+    "inject-then": "^2.0.0",
+    "jshint-stylish": "^0.4.0",
+    "lab": "^5.13.0",
+    "should": "^4.0.4"
+  },
+  "scripts": {
+    "coveralls": "gulp test && cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "test": "gulp test"
+  }
+}
