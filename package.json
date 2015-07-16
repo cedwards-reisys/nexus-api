@@ -1,7 +1,7 @@
 {
   "name": "nexus-api",
   "description": "The best module ever.",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "https://github.com/cedwards-reisys/nexus-api",
   "bugs": "https://github.com/cedwards-reisys/nexus-api/issues",
   "license": "MIT",
