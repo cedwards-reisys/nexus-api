@@ -16,8 +16,12 @@
   },
   "keywords": [],
   "dependencies": {
+    "bluebird": "^2.9.34",
+    "comma-separated-values": "^3.6.2",
     "config": "^1.14.0",
     "debug": "2.2.0",
+    "elasticsearch": "^5.0.0",
+    "event-stream": "^3.3.1",
     "fs": "0.0.2",
     "good": "^6.3.0",
     "good-console": "^5.0.2",
@@ -25,6 +29,8 @@
     "hapi": "^8.8.0",
     "lodash": "3.10.0",
     "q": "1.4.1",
+    "stream": "0.0.2",
+    "util": "^0.10.3",
     "winston": "^1.0.1"
   },
   "devDependencies": {
