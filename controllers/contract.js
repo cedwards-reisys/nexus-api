@@ -11,7 +11,7 @@
 var logger = require('../utils/logger');
 var ApiController = require('./api');
 
-var apiController = new ApiController('contracts');
+var apiController = new ApiController({index: 'contracts', dateFields:['signeddate','effectivedate','currentcompletiondate','ultimatecompletiondate','lastdatetoorder','registrationdate','renewaldate','last_modified_date']});
 
 var ContractController = function () {
     this.ES_INDEX = 'contracts';

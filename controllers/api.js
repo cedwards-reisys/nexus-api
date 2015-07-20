@@ -16,8 +16,9 @@ var elasticsearch = require('elasticsearch');
 var moment = require('moment');
 var ElasticsearchQuery = require('../lib/elasticsearchQuery');
 
-var ApiController = function ( index ) {
-    this.ES_INDEX = index;
+var ApiController = function ( options) {
+    this.ES_INDEX = options.index;
+    this.DATE_FIELDS = options.dateFields;
     this.EXPECTED_PARAMS = ['search', 'count', 'limit', 'offset'];
     this.MAX_LIMIT = 100;
     this.MAX_COUNT_LIMIT = 1000;
@@ -91,7 +92,7 @@ ApiController.prototype.getParams = function getParams(params) {
 
 ApiController.prototype.getElasticsearchParams = function getElasticsearchParams(params) {
 
-    var ESQuery = new ElasticsearchQuery({});
+    var ESQuery = new ElasticsearchQuery({dateFields: this.DATE_FIELDS});
     var query = ESQuery.buildQuery(params);
 
     // Added sort by _id to ensure consistent results across servers
@@ -143,7 +144,7 @@ ApiController.prototype.search = function search(params, es_search_params) {
                 if (body.facets.count.entries.length !== 0) {
                     for (var j = 0, total = body.facets.count.entries.length; j < total; j++) {
                         var day = moment(body.facets.count.entries[j].time);
-                        body.facets.count.entries[j].time = day.format('YYYY-MM-DD');
+                        body.facets.count.entries[j].time = day.format('MM/dd/yyyy');
                     }
                     results.data = body.facets.count.entries;
                 } else {
