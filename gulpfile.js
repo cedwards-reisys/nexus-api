@@ -4,8 +4,8 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 
 var paths = {
-    lint: ['./gulpfile.js', './server.js'],
-    watch: ['./gulpfile.js', './server.js', './routes.js', './test/**/*.js', '!test/{temp,temp/**}'],
+    lint: ['./gulpfile.js', './server.js', './controllers/**/*.js', './errors/**/*.js', './lib/**/*.js', './utils/**/*.js'],
+    watch: ['./gulpfile.js', './server.js', './routes.js', './test/**/*.js', '!test/{temp,temp/**}', './controllers/**/*.js', './errors/**/*.js', './lib/**/*.js', './utils/**/*.js'],
     tests: ['./test/**/*.js', '!test/{temp,temp/**}'],
     source: ['server.js']
 };
@@ -50,8 +50,8 @@ gulp.task('bump', ['test'], function () {
         .pipe(gulp.dest('./'));
 });
 
-gulp.task('watch', ['test'], function () {
-    gulp.watch(paths.watch, ['test']);
+gulp.task('watch', function () {
+    gulp.watch(paths.watch);
 });
 
 gulp.task('test', ['lint', 'istanbul']);

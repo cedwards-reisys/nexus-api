@@ -19,7 +19,7 @@ lab.experiment('Basic Server Tests', function () {
     lab.test('Contract controller /contract.json', function (done) {
         var options = {
             method: 'GET',
-            url: '/contract.json'
+            url: '/contract'
         };
 
         server.inject(options, function (response) {

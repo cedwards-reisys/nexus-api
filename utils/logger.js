@@ -11,7 +11,10 @@
 var config = require('config');
 var fs = require('fs');
 var logDirectory = './logs';
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
+
+if ( !fs.existsSync(logDirectory) ) {
+    fs.mkdirSync(logDirectory);
+}
 
 var winston = require('winston');
 winston.emitErrs = true;

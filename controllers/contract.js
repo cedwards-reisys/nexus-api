@@ -6,12 +6,12 @@
  * Licensed under the MIT license.
  */
 
-//'use strict';
+'use strict';
 
 var logger = require('../utils/logger');
-var util = require('util');
+var ApiController = require('./api');
 
-//var ApiController = require('./api');
+var apiController = new ApiController('contracts');
 
 var ContractController = function () {
     this.ES_INDEX = 'contracts';
@@ -19,22 +19,14 @@ var ContractController = function () {
 
 ContractController.prototype.getIndex = function (request,reply) {
     try {
-
-        //var apiController = new ApiController(this.ES_INDEX);
-
-
-
-        //var params = apiController.getParams(request);
-        //var es_params = this.getElasticsearchParams(params);
-        //var result = this.search(params,es_params);
-        //reply(result);
-        reply({index: null, what: 123});
+        var params = apiController.getParams(request.query);
+        var es_params = apiController.getElasticsearchParams(params);
+        var result = apiController.search(params,es_params);
+        reply(result);
     } catch (e) {
-        //logger.error(e);
-        //reply(this.error(e.message, e.code));
-        reply(e);
+        logger.error(e);
+        reply(apiController.error(e.message, e.code));
     }
 };
 
 module.exports = new ContractController();
-
