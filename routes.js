@@ -8,19 +8,31 @@
 
 'use strict';
 
-module.exports = [
+//var contractController = require('./controllers/contract');
+
+exports.endpoints = [
+    {
+        method: 'GET',
+        path: '/contract',
+        config: {handler: require('./controllers/contract').getIndex}
+    },
     {
         method: 'GET',
         path: '/',
         handler: function (request, reply) {
-            reply('Hello, world!');
-        }
-    },
-    {
-        method: 'GET',
-        path: '/contract.json',
-        handler: function (request, reply) {
-            reply('Hello!');
+            // respond with available resources list
+            var list = {
+                routes: [
+                    {
+                        path: '/contract',
+                        verb: 'GET',
+                        params: {
+
+                        }
+                    }
+                ]
+            };
+            reply(list);
         }
     }
 ];

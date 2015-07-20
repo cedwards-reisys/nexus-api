@@ -17,7 +17,7 @@ var server = new Hapi.Server();
 
 server.connection({host: config.get('server.address'), port: config.get('server.port'), routes: config.get('server.routes')});
 
-server.route(require('./routes'));
+server.route(require('./routes').endpoints);
 
 server.register([
     {
